@@ -1,0 +1,250 @@
+{
+    "info": {
+        "name": "Company Management API",
+        "_postman_id": "12345678-1234-1234-1234-123456789012",
+        "description": "API collection for managing employees, vehicles, and assignments.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Employee",
+            "item": [
+                {
+                    "name": "List Employees",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/employee/list",
+                            "host": ["{{base_url}}"],
+                            "path": ["employee", "list"]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Employee",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"firstname\": \"John\",\n\t\"lastname\": \"Doe\",\n\t\"email\": \"johndoe@example.com\",\n\t\"phone\": \"123456789\",\n\t\"position\": \"Manager\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/employee",
+                            "host": ["{{base_url}}"],
+                            "path": ["employee"]
+                        }
+                    }
+                },
+                {
+                    "name": "Show Employee",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/employee/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["employee", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Employee",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"firstname\": \"Jane\",\n\t\"lastname\": \"Smith\",\n\t\"email\": \"janesmith@example.com\",\n\t\"phone\": \"987654321\",\n\t\"position\": \"Developer\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/employee/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["employee", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Employee",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/employee/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["employee", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "item": [
+                {
+                    "name": "List Vehicles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/vehicle/list",
+                            "host": ["{{base_url}}"],
+                            "path": ["vehicle", "list"]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Vehicle",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"brand\": \"Toyota\",\n\t\"model\": \"Camry\",\n\t\"plate\": \"34ABC123\",\n\t\"color\": \"White\",\n\t\"year\": \"2020\",\n\t\"km\": 15000,\n\t\"image\": \"image_url\",\n\t\"is_active\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/vehicle",
+                            "host": ["{{base_url}}"],
+                            "path": ["vehicle"]
+                        }
+                    }
+                },
+                {
+                    "name": "Show Vehicle",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/vehicle/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["vehicle", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Vehicle",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"brand\": \"Honda\",\n\t\"model\": \"Accord\",\n\t\"plate\": \"34XYZ789\",\n\t\"color\": \"Black\",\n\t\"year\": \"2021\",\n\t\"km\": 10000,\n\t\"is_active\": false\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/vehicle/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["vehicle", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Vehicle",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/vehicle/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["vehicle", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Assignment",
+            "item": [
+                {
+                    "name": "List Assignments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/assignment/list",
+                            "host": ["{{base_url}}"],
+                            "path": ["assignment", "list"]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Assignment",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"employee_id\": 1,\n\t\"vehicle_id\": 1,\n\t\"start_date\": \"2023-01-01\",\n\t\"end_date\": \"2023-12-31\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/assignment",
+                            "host": ["{{base_url}}"],
+                            "path": ["assignment"]
+                        }
+                    }
+                },
+                {
+                    "name": "Show Assignment",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/assignment/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["assignment", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Assignment",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            { "key": "Content-Type", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"employee_id\": 2,\n\t\"vehicle_id\": 1,\n\t\"start_date\": \"2023-06-01\",\n\t\"end_date\": \"2024-05-31\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/assignment/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["assignment", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Assignment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/assignment/:id",
+                            "host": ["{{base_url}}"],
+                            "path": ["assignment", ":id"],
+                            "variable": [{ "key": "id", "value": "1" }]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
