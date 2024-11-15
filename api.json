@@ -1,88 +1,196 @@
 {
     "info": {
-        "name": "Company Management API",
-        "_postman_id": "12345678-1234-1234-1234-123456789012",
+        "_postman_id": "37c36cf3-575e-4c70-87f7-d0051c290122",
+        "name": "Araç Zimmet API",
         "description": "API collection for managing employees, vehicles, and assignments.",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "37398180"
     },
     "item": [
         {
             "name": "Employee",
             "item": [
                 {
-                    "name": "List Employees",
+                    "name": "List",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/employee/list",
-                            "host": ["{{base_url}}"],
-                            "path": ["employee", "list"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "employee",
+                                "list"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Create Employee",
+                    "name": "Store",
                     "request": {
                         "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"firstname\": \"John\",\n\t\"lastname\": \"Doe\",\n\t\"email\": \"johndoe@example.com\",\n\t\"phone\": \"123456789\",\n\t\"position\": \"Manager\"\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "firstname",
+                                    "value": " John",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": " Doe",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": " johndoe@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": " 123456789",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "position",
+                                    "value": " Manager",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/employee",
-                            "host": ["{{base_url}}"],
-                            "path": ["employee"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "employee"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Show Employee",
+                    "name": "Show",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/employee/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["employee", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "employee",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Update Employee",
+                    "name": "Update",
                     "request": {
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"firstname\": \"Jane\",\n\t\"lastname\": \"Smith\",\n\t\"email\": \"janesmith@example.com\",\n\t\"phone\": \"987654321\",\n\t\"position\": \"Developer\"\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "firstname",
+                                    "value": "Jane",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": "Smith",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "janesmith@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "987654321",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "position",
+                                    "value": "Developer",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/employee/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["employee", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "employee",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "2"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Delete Employee",
+                    "name": "Delete",
                     "request": {
                         "method": "DELETE",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/employee/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["employee", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "employee",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 }
             ]
         },
@@ -90,79 +198,206 @@
             "name": "Vehicle",
             "item": [
                 {
-                    "name": "List Vehicles",
+                    "name": "List",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/vehicle/list",
-                            "host": ["{{base_url}}"],
-                            "path": ["vehicle", "list"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "vehicle",
+                                "list"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Create Vehicle",
+                    "name": "Create",
                     "request": {
                         "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"brand\": \"Toyota\",\n\t\"model\": \"Camry\",\n\t\"plate\": \"34ABC123\",\n\t\"color\": \"White\",\n\t\"year\": \"2020\",\n\t\"km\": 15000,\n\t\"image\": \"image_url\",\n\t\"is_active\": true\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "brand",
+                                    "value": "Toyota",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "model",
+                                    "value": "Camry",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "plate",
+                                    "value": "34ABC123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "White",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "year",
+                                    "value": "2020",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "km",
+                                    "value": "15000",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "1",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/vehicle",
-                            "host": ["{{base_url}}"],
-                            "path": ["vehicle"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "vehicle"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Show Vehicle",
+                    "name": "Show",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/vehicle/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["vehicle", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "vehicle",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Update Vehicle",
+                    "name": "Update",
                     "request": {
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"brand\": \"Honda\",\n\t\"model\": \"Accord\",\n\t\"plate\": \"34XYZ789\",\n\t\"color\": \"Black\",\n\t\"year\": \"2021\",\n\t\"km\": 10000,\n\t\"is_active\": false\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "brand",
+                                    "value": "Honda",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "model",
+                                    "value": "Accord",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "plate",
+                                    "value": "34XYZ789",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "Black",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "year",
+                                    "value": "2021",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "km",
+                                    "value": "10000",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "0",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/vehicle/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["vehicle", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "vehicle",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "2"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Delete Vehicle",
+                    "name": "Delete",
                     "request": {
                         "method": "DELETE",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/vehicle/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["vehicle", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "vehicle",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 }
             ]
         },
@@ -170,81 +405,207 @@
             "name": "Assignment",
             "item": [
                 {
-                    "name": "List Assignments",
+                    "name": "List",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/assignment/list",
-                            "host": ["{{base_url}}"],
-                            "path": ["assignment", "list"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "assignment",
+                                "list"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Create Assignment",
+                    "name": "Create",
                     "request": {
                         "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"employee_id\": 1,\n\t\"vehicle_id\": 1,\n\t\"start_date\": \"2023-01-01\",\n\t\"end_date\": \"2023-12-31\"\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "employee_id",
+                                    "value": "1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "vehicle_id",
+                                    "value": "1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2023-12-01",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2024-12-31",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/assignment",
-                            "host": ["{{base_url}}"],
-                            "path": ["assignment"]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "assignment"
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Show Assignment",
+                    "name": "Show",
                     "request": {
                         "method": "GET",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/assignment/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["assignment", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "assignment",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "52"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Update Assignment",
+                    "name": "Update",
                     "request": {
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
-                            { "key": "Content-Type", "value": "application/json" }
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\n\t\"employee_id\": 2,\n\t\"vehicle_id\": 1,\n\t\"start_date\": \"2023-06-01\",\n\t\"end_date\": \"2024-05-31\"\n}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "employee_id",
+                                    "value": "2",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "vehicle_id",
+                                    "value": "1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2023-06-01",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2024-05-31",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "url": {
                             "raw": "{{base_url}}/assignment/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["assignment", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "assignment",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "2"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 },
                 {
-                    "name": "Delete Assignment",
+                    "name": "Delete",
                     "request": {
                         "method": "DELETE",
                         "header": [],
                         "url": {
                             "raw": "{{base_url}}/assignment/:id",
-                            "host": ["{{base_url}}"],
-                            "path": ["assignment", ":id"],
-                            "variable": [{ "key": "id", "value": "1" }]
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "assignment",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ]
                         }
-                    }
+                    },
+                    "response": []
                 }
             ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://127.0.0.1:8001/api",
+            "type": "string"
         }
     ]
 }
