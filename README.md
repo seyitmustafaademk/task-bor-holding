@@ -1,66 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Vehicle Assignment Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a Laravel-based system for managing vehicle assignments to employees. It includes CRUD operations for employees, vehicles, and their assignments, with validations and database relationships.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Employee Management
+    - Add, update, delete, and view employees.
+- Vehicle Management
+    - Add, update, delete, and view vehicles.
+- Assignment Management
+    - Assign vehicles to employees with start and end dates.
+    - Cascade delete relationships (deleting an employee or vehicle also removes related assignments).
+- API Endpoints
+    - RESTful routes for all resources.
+- Validation
+    - Store and update requests are validated with custom rules and error messages.
+- Timestamp support for assignment dates.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/seyitmustafaademk/task-bor-holding.git
+    ```
+   
+2. Install dependencies:
+    ```bash
+    composer install
+    ```
+   
+3. Set up the environment file:
+    ```bash
+    cp .env.example .env
+    ```
+   
+4. Generate the application key:
+    ```bash
+    php artisan key:generate
+    ```
+   
+5. Configure your database in the .env file:
+    ```bash
+    DB_CONNECTION=mariadb
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=bor_holding_case
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+   
+6. Run migrations to create the database tables:
+    ```bash
+    php artisan migrate --seed
+    ```
+   
+7. Start the Local Development Server:
+    ```bash
+    php artisan serve
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### Employee Management Endpoints
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Method | Endpoint          | Description                |
+|--------|-------------------|----------------------------|
+| GET    | `/employees`      | List all employees         |
+| POST   | `/employees`      | Create a new employee      |
+| GET    | `/employees/{id}` | View an employee           |
+| PUT    | `/employees/{id}` | Update an employee         |
+| DELETE | `/employees/{id}` | Delete an employee         |
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Vehicle Management Endpoints
 
-## Contributing
+| Method | Endpoint         | Description               |
+|--------|------------------|---------------------------|
+| GET    | `/vehicles`      | List all vehicles         |
+| POST   | `/vehicles`      | Create a new vehicle      |
+| GET    | `/vehicles/{id}` | View a vehicle            |
+| PUT    | `/vehicles/{id}` | Update a vehicle          |
+| DELETE | `/vehicles/{id}` | Delete a vehicle          |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+### Assignment Management Endpoints
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Method | Endpoint           | Description                     |
+|--------|--------------------|---------------------------------|
+| GET    | `/assignments`     | List all assignments            |
+| POST   | `/assignments`     | Create a new assignment         |
+| GET    | `/assignments/{id}`| View an assignment              |
+| PUT    | `/assignments/{id}`| Update an assignment            |
+| DELETE | `/assignments/{id}`| Delete an assignment            |
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<br>
 
-## License
+## Employee Request Rules
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### StoreEmployeeRequest
+
+| Field       | Rules                         | Description                              |
+|-------------|-------------------------------|------------------------------------------|
+| `firstname` | `required|string|max:30`     | The first name of the employee.          |
+| `lastname`  | `required|string|max:30`     | The last name of the employee.           |
+| `email`     | `required|email|unique|max:75`| Unique email address of the employee.    |
+| `phone`     | `nullable|string|max:20`     | Optional phone number of the employee.   |
+| `position`  | `nullable|string|max:100`    | Optional job position of the employee.   |
+
+### UpdateEmployeeRequest
+
+| Field       | Rules                         | Description                              |
+|-------------|-------------------------------|------------------------------------------|
+| `firstname` | `sometimes|string|max:30`    | The first name of the employee.          |
+| `lastname`  | `sometimes|string|max:30`    | The last name of the employee.           |
+| `email`     | `sometimes|email|unique|max:75`| Unique email address of the employee.   |
+| `phone`     | `nullable|string|max:20`     | Optional phone number of the employee.   |
+| `position`  | `nullable|string|max:100`    | Optional job position of the employee.   |
+
+
+## Vehicle Request Rules
+
+### StoreVehicleRequest
+
+| Field      | Rules                              | Description                               |
+|------------|------------------------------------|-------------------------------------------|
+| `brand`    | `required|string|max:100`         | The brand of the vehicle.                 |
+| `model`    | `required|string|max:100`         | The model of the vehicle.                 |
+| `plate`    | `required|string|unique|max:15`   | Unique license plate of the vehicle.      |
+| `color`    | `required|string|max:50`          | The color of the vehicle.                 |
+| `year`     | `nullable|integer|digits:4|min:1900|max:<current_year>`| Year of manufacture. |
+| `km`       | `nullable|integer|min:0`          | Kilometers driven by the vehicle.         |
+| `is_active`| `boolean`                         | Whether the vehicle is active or not.     |
+
+### UpdateVehicleRequest
+
+| Field      | Rules                              | Description                              |
+|------------|------------------------------------|------------------------------------------|
+| `brand`    | `sometimes|string|max:100`        | The brand of the vehicle.                 |
+| `model`    | `sometimes|string|max:100`        | The model of the vehicle.                 |
+| `plate`    | `sometimes|string|unique|max:15`  | Unique license plate of the vehicle.     |
+| `color`    | `sometimes|string|max:50`         | The color of the vehicle.                |
+| `year`     | `nullable|integer|digits:4|min:1900|max:<current_year>`| Year of manufacture.|
+| `km`       | `nullable|integer|min:0`          | Kilometers driven by the vehicle.         |
+| `is_active`| `boolean`                         | Whether the vehicle is active or not.    |
+
+
+## Assignment Request Rules
+
+### StoreAssignmentRequest
+
+| Field         | Rules                               | Description                                      |
+|---------------|-------------------------------------|--------------------------------------------------|
+| `employee_id` | `required|exists:employees,id`      | ID of the assigned employee.                    |
+| `vehicle_id`  | `required|exists:vehicles,id`       | ID of the assigned vehicle.                     |
+| `start_date`  | `required|date`                    | Start date of the assignment.                   |
+| `end_date`    | `nullable|date|after_or_equal:start_date`| Optional end date of the assignment.          |
+
+### UpdateAssignmentRequest
+
+| Field         | Rules                               | Description                                      |
+|---------------|-------------------------------------|--------------------------------------------------|
+| `employee_id` | `sometimes|exists:employees,id`     | ID of the assigned employee.                    |
+| `vehicle_id`  | `sometimes|exists:vehicles,id`      | ID of the assigned vehicle.                     |
+| `start_date`  | `sometimes|date`                   | Start date of the assignment.                   |
+| `end_date`    | `nullable|date|after_or_equal:start_date`| Optional end date of the assignment.          |
